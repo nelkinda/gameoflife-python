@@ -5,7 +5,7 @@ The primary focus of the implementation is cleanliness, not performance.
 It serves as a lose guideline for Nelkinda Coderetreat facilitators.
 
 ## Disclaimer
-This Python implementation is new and has not yet undergone thorough review.
+This Python implementation is a new translation from Kotlin and has not yet undergone thorough review.
 
 ## Rules of Conway's Game of Life
 > The universe of the _Game of Life_ is an infinite, two-dimensional orthogonal grid of square cells.
