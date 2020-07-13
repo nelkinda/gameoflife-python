@@ -23,9 +23,9 @@ class Universe:
 
     def dead_neighbors_of_living_cells(self) -> set:
         return set([
-            deadNeighbor
-            for deadNeighbors in map(lambda live_cell: self.cell_dead_neighbors(live_cell), self.life)
-            for deadNeighbor in deadNeighbors
+            dead_neighbor
+            for dead_neighbors in map(lambda live_cell: self.cell_dead_neighbors(live_cell), self.life)
+            for dead_neighbor in dead_neighbors
         ])
 
     def born_cells(self) -> set:
