@@ -1,3 +1,6 @@
+from dataclasses import dataclass
+
+
 class Rules:
     def survives(self, live_neighbors) -> bool:
         pass
@@ -6,10 +9,10 @@ class Rules:
         pass
 
 
+@dataclass(frozen=True)
 class StandardRules(Rules):
-    def __init__(self, live_neighbors_for_survival, live_neighbors_for_birth):
-        self.liveNeighborsForSurvival = live_neighbors_for_survival
-        self.liveNeighborsForBirth = live_neighbors_for_birth
+    liveNeighborsForSurvival: set
+    liveNeighborsForBirth: set
 
     def survives(self, live_neighbors) -> bool:
         return live_neighbors in self.liveNeighborsForSurvival
@@ -20,10 +23,6 @@ class StandardRules(Rules):
     def __str__(self):
         return "R " + "".join(str(i) for i in self.liveNeighborsForSurvival) + "/" +\
                "".join(str(i) for i in self.liveNeighborsForBirth)
-
-    def __eq__(self, other):
-        return self.liveNeighborsForSurvival == other.liveNeighborsForSurvival and\
-               self.liveNeighborsForBirth == other.liveNeighborsForBirth
 
 
 ConwayRules = StandardRules({2, 3}, {3})

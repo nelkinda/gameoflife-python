@@ -1,16 +1,16 @@
+from dataclasses import dataclass
 from Rules import ConwayRules
 import Point
+import Rules
 
 
+@dataclass(frozen=True)
 class Universe:
-    def __init__(self, rules=ConwayRules, life=None):
-        if life is None:
-            life = set()
-        self.life = life
-        self.rules = rules
+    life: set
+    rules: Rules = ConwayRules
 
     def __add__(self, other):
-        return Universe(self.rules, self.surviving_cells() | self.born_cells())
+        return Universe(rules=self.rules, life=self.surviving_cells() | self.born_cells())
 
     def __eq__(self, other):
         return self.rules == other.rules and self.life == other.life
