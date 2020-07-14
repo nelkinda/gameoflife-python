@@ -1,5 +1,5 @@
-from Universe import Universe
-from Point import P
+from universe import Universe
+from point import P
 
 
 def parse_simplified_life1_05(life1_05) -> Universe:

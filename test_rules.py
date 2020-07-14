@@ -1,5 +1,5 @@
 import unittest
-from Rules import ConwayRules, StandardRules
+from rules import ConwayRules, StandardRules
 
 
 class RulesTest(unittest.TestCase):

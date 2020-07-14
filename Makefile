@@ -6,7 +6,7 @@ test: unit-test acceptance-test
 
 .PHONY: unit-test
 unit-test:
-	python -m unittest *Test.py
+	python -m unittest discover
 
 .PHONY: acceptance-test
 acceptance-test:

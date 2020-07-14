@@ -1,7 +1,7 @@
 import unittest
-from Universe import Universe
-from Parser import parse_simplified_life1_05
-from Point import P
+from universe import Universe
+from parser import parse_simplified_life1_05
+from point import P
 
 
 class MyTestCase(unittest.TestCase):

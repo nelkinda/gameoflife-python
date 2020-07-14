@@ -1,7 +1,7 @@
 import unittest
-from Universe import Universe
-from Rules import StandardRules
-from Point import P
+from universe import Universe
+from rules import StandardRules
+from point import P
 
 
 class UniverseTest(unittest.TestCase):
