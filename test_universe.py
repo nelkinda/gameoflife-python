@@ -6,13 +6,13 @@ from point import P
 
 class UniverseTest(unittest.TestCase):
     def test_equality(self):
-        u1 = Universe(StandardRules(set(), set()), set())
-        u2 = Universe(StandardRules(set(), set()), set())
+        u1 = Universe(rules=StandardRules(set(), set()), life=set())
+        u2 = Universe(rules=StandardRules(set(), set()), life=set())
         self.assertEqual(u1, u2)
 
     def test_inEquality(self):
-        u1 = Universe(StandardRules(set(), {1}), set())
-        u2 = Universe(StandardRules({1}, set()), set())
+        u1 = Universe(rules=StandardRules(set(), {1}), life=set())
+        u2 = Universe(rules=StandardRules({1}, set()), life=set())
         self.assertNotEqual(u1, u2)
 
     def test_str(self):

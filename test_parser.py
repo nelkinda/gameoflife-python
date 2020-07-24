@@ -4,7 +4,7 @@ from parser import parse_simplified_life1_05
 from point import P
 
 
-class MyTestCase(unittest.TestCase):
+class ParserTest(unittest.TestCase):
 
     def parses(self, spec, cells):
         self.assertEqual(Universe(life=cells), parse_simplified_life1_05(spec))
