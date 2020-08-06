@@ -1,10 +1,13 @@
 from dataclasses import dataclass
+import abc
 
 
-class Rules:
+class Rules(metaclass=abc.ABCMeta):
+    @abc.abstractmethod
     def survives(self, live_neighbors) -> bool:
         pass
 
+    @abc.abstractmethod
     def born(self, live_neighbors) -> bool:
         pass
 
