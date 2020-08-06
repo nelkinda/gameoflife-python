@@ -2,7 +2,7 @@
 all: test
 
 .PHONY: test
-test: coverage-reports/unit-test.coverage coverage-reports/acceptance-test.coverage
+test: .coverage
 
 coverage-reports/unit-test.coverage:
 	COVERAGE_FILE=$@ coverage run --omit "venv/*" -m unittest discover
