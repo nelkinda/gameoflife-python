@@ -20,6 +20,11 @@ coverage-reports/coverage-.xml: .coverage
 sonarqube: coverage-reports/coverage-.xml
 	docker run --network host --rm -v "$$(pwd):/usr/src" sonarsource/sonar-scanner-cli -Dsonar.projectKey=gameoflife-python
 
+.PHONY: sonard
+## Runs a Sonar server locally.
+sonard:
+	docker start sonarqube || docker run -d --name sonarqube sonarqube
+
 .PHONY: clean
 clean::
 	coverage erase
