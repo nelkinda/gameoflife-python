@@ -4,11 +4,11 @@ import abc
 
 class Rules(metaclass=abc.ABCMeta):
     @abc.abstractmethod
-    def survives(self, live_neighbors) -> bool:
+    def survives(self, live_neighbors) -> bool:  # pragma: no cover
         pass
 
     @abc.abstractmethod
-    def born(self, live_neighbors) -> bool:
+    def born(self, live_neighbors) -> bool:  # pragma: no cover
         pass
 
 
@@ -24,7 +24,7 @@ class StandardRules(Rules):
         return live_neighbors in self.liveNeighborsForBirth
 
     def __str__(self):
-        return "R " + "".join(str(i) for i in self.liveNeighborsForSurvival) + "/" +\
+        return "R " + "".join(str(i) for i in self.liveNeighborsForSurvival) + "/" + \
                "".join(str(i) for i in self.liveNeighborsForBirth)
 
 

@@ -25,5 +25,5 @@ class RulesTest(unittest.TestCase):
         self.assertNotEqual(rules1, rules2)
 
 
-if __name__ == '__main__':
+if __name__ == '__main__':  # pragma: no cover
     unittest.main()

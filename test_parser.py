@@ -21,5 +21,5 @@ class ParserTest(unittest.TestCase):
             parse_simplified_life1_05("o")
 
 
-if __name__ == '__main__':
+if __name__ == '__main__':  # pragma: no cover
     unittest.main()

@@ -19,5 +19,5 @@ class UniverseTest(unittest.TestCase):
         self.assertEqual("Universe{R 23/3\n[P(0, 1)]}", Universe(life={P(0, 1)}).__str__())
 
 
-if __name__ == '__main__':
+if __name__ == '__main__':  # pragma: no cover
     unittest.main()
