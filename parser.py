@@ -14,6 +14,7 @@ def parse_simplified_life1_05(life1_05) -> Universe:
         elif c == '*':
             cells.add(P(column - 1, line - 1))
         elif c == '.':
+            # Skip '.', it's a dead cell.
             pass
         else:
             raise ValueError(

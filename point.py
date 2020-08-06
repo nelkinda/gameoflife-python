@@ -17,7 +17,7 @@ class Point:
 
 
 # noinspection PyPep8Naming
-def P(x, y) -> Point:
+def P(x, y) -> Point:  # NOSONAR P(x, y) is our DSL.
     return Point(x, y)
 
 
