@@ -1,6 +1,10 @@
 .PHONY: all
 all: test
 
+.PHONY: pip-install
+pip-install:
+	pip install -r requirements.txt
+
 .PHONY: test
 test: .coverage
 
