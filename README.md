@@ -1,5 +1,7 @@
 # Game of Life
 
+![Python application](https://github.com/nelkinda/gameoflife-python/workflows/Python%20application/badge.svg)
+
 This is an example implementation of Conway's Game of Life in **Python**.
 The primary focus of the implementation is cleanliness, not performance.
 It serves as a lose guideline for Nelkinda Coderetreat facilitators.
