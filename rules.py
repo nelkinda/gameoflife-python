@@ -1,13 +1,13 @@
 from dataclasses import dataclass
-import abc
+from abc import ABC, abstractmethod
 
 
-class Rules(metaclass=abc.ABCMeta):
-    @abc.abstractmethod
+class Rules(ABC):
+    @abstractmethod
     def survives(self, live_neighbors) -> bool:  # pragma: no cover
         pass
 
-    @abc.abstractmethod
+    @abstractmethod
     def born(self, live_neighbors) -> bool:  # pragma: no cover
         pass
 
