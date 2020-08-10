@@ -1,5 +1,11 @@
 .PHONY: all
-all: test
+all: verify
+
+.PHONY: verify
+verify: lint test
+
+.PHONY: pipeline
+pipeline: pip-install verify
 
 .PHONY: pip-install
 pip-install:
