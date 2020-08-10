@@ -10,7 +10,8 @@ test: .coverage
 
 .PHONY: lint
 lint:
-	pylint *.py
+	mypy *.py
+	prospector *.py
 
 coverage-reports/unit-test.coverage:
 	COVERAGE_FILE=$@ coverage run --omit "venv/*" -m unittest discover

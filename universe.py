@@ -1,13 +1,12 @@
 from dataclasses import dataclass
-from rules import ConwayRules
-import point
-import rules
+from rules import ConwayRules, Rules
+from point import Point
 
 
 @dataclass(frozen=True)
 class Universe:
     life: set
-    rules: rules = ConwayRules
+    rules: Rules = ConwayRules
 
     def __add__(self, other):
         return Universe(rules=self.rules, life=self.surviving_cells() | self.born_cells())
@@ -43,10 +42,10 @@ class Universe:
     def cell_born(self, cell):
         return self.rules.born(self.cell_count_live_neighbors(cell))
 
-    def cell_dead_neighbors(self, cell: point) -> set:
+    def cell_dead_neighbors(self, cell: Point) -> set:
         return set(filter(self.cell_is_dead, cell.neighbors()))
 
-    def cell_live_neighbors(self, cell: point) -> set:
+    def cell_live_neighbors(self, cell: Point) -> set:
         return set(filter(self.cell_is_alive, cell.neighbors()))
 
     def cell_count_live_neighbors(self, cell):
