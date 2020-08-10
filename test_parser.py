@@ -1,7 +1,7 @@
 import unittest
-from universe import Universe
 from parser import parse_simplified_life1_05
 from point import P
+from universe import Universe
 
 
 class ParserTest(unittest.TestCase):
