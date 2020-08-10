@@ -22,11 +22,11 @@ class Universe:
         return set(filter(self.cell_survives, self.life))
 
     def dead_neighbors_of_living_cells(self) -> set:
-        return set([
+        return {
             dead_neighbor
             for dead_neighbors in map(self.cell_dead_neighbors, self.life)
             for dead_neighbor in dead_neighbors
-        ])
+        }
 
     def born_cells(self) -> set:
         return set(filter(self.cell_born, self.dead_neighbors_of_living_cells()))
