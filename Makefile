@@ -41,6 +41,10 @@ sonarqube: coverage-reports/coverage-.xml
 sonard:
 	docker start sonarqube || docker run -d --name sonarqube sonarqube
 
+.PHONY: checkUpdates
+checkUpdates:
+	pip list --outdated
+
 .PHONY: clean
 clean::
 	coverage erase
