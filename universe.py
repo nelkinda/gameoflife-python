@@ -20,6 +20,9 @@ class Universe:
     def surviving_cells(self) -> set:
         return set(filter(self.cell_survives, self.life))
 
+    def born_cells(self) -> set:
+        return set(filter(self.cell_born, self.dead_neighbors_of_living_cells()))
+
     def dead_neighbors_of_living_cells(self) -> set:
         return {
             dead_neighbor
@@ -27,20 +30,17 @@ class Universe:
             for dead_neighbor in dead_neighbors
         }
 
-    def born_cells(self) -> set:
-        return set(filter(self.cell_born, self.dead_neighbors_of_living_cells()))
+    def cell_survives(self, cell):
+        return self.rules.survives(self.cell_count_live_neighbors(cell))
+
+    def cell_born(self, cell):
+        return self.rules.born(self.cell_count_live_neighbors(cell))
 
     def cell_is_alive(self, cell):
         return cell in self.life
 
     def cell_is_dead(self, cell):
         return cell not in self.life
-
-    def cell_survives(self, cell):
-        return self.rules.survives(self.cell_count_live_neighbors(cell))
-
-    def cell_born(self, cell):
-        return self.rules.born(self.cell_count_live_neighbors(cell))
 
     def cell_dead_neighbors(self, cell: Point) -> set:
         return set(filter(self.cell_is_dead, cell.neighbors()))
