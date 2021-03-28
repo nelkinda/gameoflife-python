@@ -9,13 +9,16 @@ class Universe:
     rules: Rules = ConwayRules
 
     def __add__(self, other):
-        return Universe(rules=self.rules, life=self.surviving_cells() | self.born_cells())
+        return Universe(rules=self.rules, life=self.cells_of_next_generation())
 
     def __eq__(self, other):
         return self.rules == other.rules and self.life == other.life
 
     def __str__(self):
         return "Universe{{{0}\n[{1}]}}".format(str(self.rules), ", ".join(map(str, self.life)))
+
+    def cells_of_next_generation(self) -> set:
+        return self.surviving_cells() | self.born_cells()
 
     def surviving_cells(self) -> set:
         return set(filter(self.cell_survives, self.life))
