@@ -12,6 +12,10 @@ class Rules(ABC):
         pass
 
 
+def set_str(s: set) -> str:
+    return "".join(str(i) for i in s)
+
+
 @dataclass(frozen=True)
 class StandardRules(Rules):
     liveNeighborsForSurvival: set
@@ -24,8 +28,10 @@ class StandardRules(Rules):
         return live_neighbors in self.liveNeighborsForBirth
 
     def __str__(self):
-        return "R " + "".join(str(i) for i in self.liveNeighborsForSurvival) + "/" + \
-               "".join(str(i) for i in self.liveNeighborsForBirth)
+        return "R {0}/{1}".format(
+            set_str(self.liveNeighborsForSurvival),
+            set_str(self.liveNeighborsForBirth),
+        )
 
 
 ConwayRules = StandardRules({2, 3}, {3})

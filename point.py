@@ -7,7 +7,7 @@ class Point:
     y: int
 
     def __str__(self):
-        return "P({0}, {1})".format(str(self.x), str(self.y))
+        return f"P({self.x}, {self.y})"
 
     def __add__(self, other):
         return P(self.x + other.x, self.y + other.y)
