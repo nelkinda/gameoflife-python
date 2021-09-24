@@ -4,11 +4,11 @@ from abc import ABC, abstractmethod
 
 class Rules(ABC):
     @abstractmethod
-    def survives(self, live_neighbors) -> bool:  # pragma: no cover
+    def survives(self, live_neighbors: int) -> bool:  # pragma: no cover
         pass
 
     @abstractmethod
-    def born(self, live_neighbors) -> bool:  # pragma: no cover
+    def born(self, live_neighbors: int) -> bool:  # pragma: no cover
         pass
 
 
@@ -21,16 +21,16 @@ class StandardRules(Rules):
     _liveNeighborsForSurvival: set
     _liveNeighborsForBirth: set
 
-    def survives(self, live_neighbors) -> bool:
+    def survives(self, live_neighbors: int) -> bool:
         return live_neighbors in self._liveNeighborsForSurvival
 
-    def born(self, live_neighbors) -> bool:
+    def born(self, live_neighbors: int) -> bool:
         return live_neighbors in self._liveNeighborsForBirth
 
-    def __str__(self):
-        return "R {0}/{1}".format(
-            set_str(self._liveNeighborsForSurvival),
-            set_str(self._liveNeighborsForBirth),
+    def __str__(self) -> str:
+        return "R {survival}/{birth}".format(
+            survival=set_str(self._liveNeighborsForSurvival),
+            birth=set_str(self._liveNeighborsForBirth),
         )
 
 
