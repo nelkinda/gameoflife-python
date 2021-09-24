@@ -3,14 +3,14 @@ from dataclasses import dataclass
 
 @dataclass(frozen=True)
 class Point:
-    x: int
-    y: int
+    _x: int
+    _y: int
 
     def __str__(self):
-        return f"P({self.x}, {self.y})"
+        return f"P({self._x}, {self._y})"
 
     def __add__(self, other):
-        return P(self.x + other.x, self.y + other.y)
+        return P(self._x + other._x, self._y + other._y)
 
     def neighbors(self) -> set:
         return set(map(lambda p: self + p, neighbors))

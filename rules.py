@@ -18,19 +18,19 @@ def set_str(s: set) -> str:
 
 @dataclass(frozen=True)
 class StandardRules(Rules):
-    liveNeighborsForSurvival: set
-    liveNeighborsForBirth: set
+    _liveNeighborsForSurvival: set
+    _liveNeighborsForBirth: set
 
     def survives(self, live_neighbors) -> bool:
-        return live_neighbors in self.liveNeighborsForSurvival
+        return live_neighbors in self._liveNeighborsForSurvival
 
     def born(self, live_neighbors) -> bool:
-        return live_neighbors in self.liveNeighborsForBirth
+        return live_neighbors in self._liveNeighborsForBirth
 
     def __str__(self):
         return "R {0}/{1}".format(
-            set_str(self.liveNeighborsForSurvival),
-            set_str(self.liveNeighborsForBirth),
+            set_str(self._liveNeighborsForSurvival),
+            set_str(self._liveNeighborsForBirth),
         )
 
 

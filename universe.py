@@ -6,16 +6,16 @@ from point import Point
 @dataclass(frozen=True)
 class Universe:
     life: set
-    rules: Rules = ConwayRules
+    _rules: Rules = ConwayRules
 
     def __add__(self, other):
-        return Universe(rules=self.rules, life=self.cells_of_next_generation())
+        return Universe(_rules=self._rules, life=self.cells_of_next_generation())
 
     def __eq__(self, other):
-        return self.rules == other.rules and self.life == other.life
+        return self._rules == other._rules and self.life == other.life
 
     def __str__(self):
-        return "Universe{{{0}\n[{1}]}}".format(str(self.rules), ", ".join(map(str, self.life)))
+        return "Universe{{{0}\n[{1}]}}".format(str(self._rules), ", ".join(map(str, self.life)))
 
     def cells_of_next_generation(self) -> set:
         return self.surviving_cells() | self.born_cells()
@@ -34,10 +34,10 @@ class Universe:
         }
 
     def cell_survives(self, cell):
-        return self.rules.survives(self.cell_count_live_neighbors(cell))
+        return self._rules.survives(self.cell_count_live_neighbors(cell))
 
     def cell_born(self, cell):
-        return self.rules.born(self.cell_count_live_neighbors(cell))
+        return self._rules.born(self.cell_count_live_neighbors(cell))
 
     def cell_is_alive(self, cell):
         return cell in self.life
