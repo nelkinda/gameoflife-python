@@ -28,10 +28,7 @@ class StandardRules(Rules):
         return live_neighbors in self._liveNeighborsForBirth
 
     def __str__(self) -> str:
-        return "R {survival}/{birth}".format(
-            survival=set_str(self._liveNeighborsForSurvival),
-            birth=set_str(self._liveNeighborsForBirth),
-        )
+        return f"R {set_str(self._liveNeighborsForSurvival)}/{set_str(self._liveNeighborsForBirth)}"
 
 
 ConwayRules = StandardRules({2, 3}, {3})

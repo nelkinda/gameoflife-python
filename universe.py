@@ -15,7 +15,7 @@ class Universe:
         return self._rules == other._rules and self.life == other.life
 
     def __str__(self) -> str:
-        return "Universe{{{0}\n[{1}]}}".format(str(self._rules), ", ".join(map(str, self.life)))
+        return f"Universe{{{self._rules}\n[{', '.join(map(str, self.life))}]}}"
 
     def cells_of_next_generation(self) -> set:
         return self.surviving_cells() | self.born_cells()

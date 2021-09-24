@@ -17,8 +17,7 @@ def parse_simplified_life1_05(life1_05) -> Universe:
             # Skip '.', it's a dead cell.
             pass
         else:
-            raise ValueError(
-                "Unexpected character \'{0}\' at line {1}, column {2}".format(str(c), str(line), str(column)))
+            raise ValueError(f"Unexpected character \'{c}\' at line {line}, column {column}")
         column += 1
 
     return Universe(life=cells)
