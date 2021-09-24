@@ -9,6 +9,10 @@ verify: lint test
 .PHONY: pipeline
 pipeline: pip-install verify
 
+.PHONY: setup-venv
+setup-venv:
+	python3 -m venv venv
+
 .PHONY: pip-install
 pip-install:
 	pip install -r requirements.txt
