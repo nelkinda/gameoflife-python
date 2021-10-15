@@ -14,21 +14,23 @@ setup-venv:
 	python3 -m venv venv
 
 .PHONY: pip-install
-pip-install:
+pip-install: .pip-install-timestamp
+.pip-install-timestamp: requirements.txt
 	pip install -r requirements.txt
+	touch $@
 
 .PHONY: test
 test: .coverage
 
 .PHONY: lint
-lint:
+lint: pip-install
 	mypy *.py
 	prospector *.py
 
-coverage-reports/unit-test.coverage:
+coverage-reports/unit-test.coverage: pip-install
 	COVERAGE_FILE=$@ coverage run --omit "venv/*" -m unittest discover
 
-coverage-reports/acceptance-test.coverage:
+coverage-reports/acceptance-test.coverage: pip-install
 	COVERAGE_FILE=$@ coverage run --omit "venv/*" -m behave
 
 .coverage: coverage-reports/acceptance-test.coverage coverage-reports/unit-test.coverage

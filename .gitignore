@@ -9,3 +9,6 @@ coverage-reports/
 
 # SonarScanner
 .scannerwork/
+
+# Makefile
+.pip-install-timestamp
