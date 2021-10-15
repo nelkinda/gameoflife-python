@@ -19,6 +19,10 @@ pip-install: .pip-install-timestamp
 	pip install -r requirements.txt
 	touch $@
 
+.PHONY: pip-freeze
+pip-freeze:
+	pip freeze >requirements.txt
+
 .PHONY: test
 test: .coverage
 
