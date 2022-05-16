@@ -1,5 +1,5 @@
 import unittest
-from parser import parse_simplified_life1_05
+from life_parser import parse_simplified_life1_05
 from point import P
 from universe import Universe
 

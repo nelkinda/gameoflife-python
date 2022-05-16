@@ -1,5 +1,5 @@
 from behave import *
-from parser import parse_simplified_life1_05
+from life_parser import parse_simplified_life1_05
 
 
 @given(u'the following universe')
