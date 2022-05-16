@@ -1,4 +1,4 @@
-astroid==2.8.2
+astroid==2.11.5
 behave==1.2.6
 coverage==6.0.2
 dodgy==0.2.1
@@ -17,7 +17,7 @@ prospector==1.5.1
 pycodestyle==2.7.0
 pydocstyle==6.1.1
 pyflakes==2.3.1
-pylint==2.11.1
+pylint==2.13.9
 pylint-celery==0.3
 pylint-django==2.4.4
 pylint-flask==0.6
