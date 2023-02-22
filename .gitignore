@@ -12,3 +12,6 @@ coverage-reports/
 
 # Makefile
 .pip-install-timestamp
+
+# Vim
+*.swp
