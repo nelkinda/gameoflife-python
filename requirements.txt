@@ -17,7 +17,7 @@ prospector==1.5.1
 pycodestyle==2.7.0
 pydocstyle==6.1.1
 pyflakes==2.3.1
-pylint==2.13.9
+pylint==4.0.9
 pylint-celery==0.3
 pylint-django==2.4.4
 pylint-flask==0.6
